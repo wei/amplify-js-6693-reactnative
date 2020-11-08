@@ -1,16 +1,21 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
+import { withAuthenticator } from 'aws-amplify-react-native'
 
-import Amplify from 'aws-amplify'
+import Amplify, { Storage } from 'aws-amplify'
 import config from './aws-exports'
 Amplify.configure(config)
 
-export default function App() {
+function App() {
   const [testText, setTestText] = useState('Initial state')
 
   async function doStuff() {
-    setTestText('Next state')
+    const putResult = await Storage.put('test.json', `{"text":"Hello ${new Date().toISOString()}"}`, { level: 'private', contentType: 'application/json' })
+    const data = await Storage.get(`test.json`, { level: 'private', download: true })
+    const text = (await new Response(data.Body).json()).text;
+    console.log(text)
+    setTestText(text)
   }
 
   return (
@@ -30,3 +35,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default withAuthenticator(App)

@@ -10,6 +10,11 @@
       "StackName": "amplify-weiamplifyreactnativ-template-160718",
       "StackId": "arn:aws:cloudformation:us-east-1:531341216129:stack/amplify-weiamplifyreactnativ-template-160718/8a4b7040-2206-11eb-9a05-0afbd365c3b9",
       "AmplifyAppId": "d4w2noxu73n8m"
+    },
+    "categories": {
+      "auth": {
+        "weiamplifyreactnative41a5e0f": {}
+      }
     }
   }
 }

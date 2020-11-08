@@ -1,1 +1,16 @@
-{}
+{
+  "auth": {
+    "weiamplifyreactnative41a5e0f": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  },
+  "storage": {
+    "s3596f4277": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation"
+    }
+  }
+}
